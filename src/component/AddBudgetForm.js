@@ -26,8 +26,10 @@ const AddBudgetForm =()=>{
                     <input type="text" name="newBudget" ref={focusRef} id="newBudget" placeholder="eg. Accessories"></input>
                 </div>
                 <div className="grid-xs" >
-                    <label htmlFor="newBudgeAmmount">Budget Ammount</label>
-                    <input type="number" step="0.01" name="newBudgetAmmount" id="newBudgetAmmount" required inputMode="decimal" placeholder="eg. $500"></input>
+                    <label htmlFor="newBudgetAmmount">Budget Ammount</label>
+                    <input type="number" step="0.01" name="newBudgetAmount" id="newBudgetAmount" placeholder="e.g., $350" required
+                            inputMode="decimal"
+                    />
                 </div>
                 <input type="hidden" name="_action" value="createBudget" />
                 <button type="submit" className="btn btn--dark" disabled={isSubmitting}>
