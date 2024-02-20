@@ -7,10 +7,16 @@ export const formatDateToLocaleString = (epoch) => {
     const date = new Date(epoch);
     return date.toLocaleDateString();
 }
-const generateRandomColor = () => {
+export const generateRandomColor = () => {
     const existingBudgetLength = fetchData("budgets")?.length ?? 0;
     return `${existingBudgetLength * 34} 65% 50%`
   }
+
+export const getAllMatchingItems=({category,key,value})=>{
+    const data = fetchData(category) ?? [];
+    return data.filter((item)=>item[key]===value);
+
+}
 export const createBudget = ({
     name,amount
 })=>{
@@ -38,9 +44,14 @@ export const createExpense = ({
     return localStorage.setItem("expenses",JSON.stringify([...existingExpenses,newItem]))
 }
 
-export const deleteItem=({key})=> {
-    return localStorage.removeItem(key)
-}
+export const deleteItem = ({ key, id }) => {
+    const existingData = fetchData(key);
+    if (id) {
+      const newData = existingData.filter((item) => item.id !== id);
+      return localStorage.setItem(key, JSON.stringify(newData));
+    }
+    return localStorage.removeItem(key);
+  };
 
 export const calculateSpentByBudget = (budgetId) =>{
     const expenses = fetchData("expenses") ?? [];

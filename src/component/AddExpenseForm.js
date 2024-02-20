@@ -15,7 +15,7 @@ const AddExpenseForm =({budgets})=>{
 
     return(
         <div className="form-wrapper">
-            <h2 className="h3">Add New
+            <h2 className="h3">Add New  
                 <span className="accent">
                     {budgets.length===1 && `${budgets.map((budg)=>budg.name)}`}
                 </span>{" "}
@@ -59,10 +59,10 @@ const AddExpenseForm =({budgets})=>{
                     </div>
                     <input type="hidden" name="_action" value="createExpense" />
                     <button type="submit" className="btn btn--dark" disabled={isSubmitting}>
-                    {isSubmitting ? <span>Creating budget ...</span> 
+                    {isSubmitting ? <span>Creating expense ...</span> 
                         : (
                             <>
-                                <span>Create budget</span>
+                                <span>Add expense</span>
                                 <PlusCircleIcon width={20} />
                             </>
                         )

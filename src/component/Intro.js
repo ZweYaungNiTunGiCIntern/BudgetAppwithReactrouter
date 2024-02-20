@@ -25,9 +25,9 @@ const Intro=()=>{
                 </button>
                 
             </Form>
-            <img src={illustration} alt="Person with money" width={600} />
-            </div>
             
+            </div>
+            <img src={illustration} alt="Person with money" width={600} />
         </div>
     )
 }
